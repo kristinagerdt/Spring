@@ -7,8 +7,14 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--    examples of Dependency Injection-->
     <bean id="musicBean"
-          class="com.gerdt.springcourse.RockMusic">
+          class="com.gerdt.springcourse.ClassicalMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+          class="com.gerdt.springcourse.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
     </bean>
 
 </beans>
