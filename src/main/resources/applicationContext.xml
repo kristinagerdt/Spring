@@ -7,14 +7,19 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--    examples of Dependency Injection-->
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <!-- examples of Dependency Injection -->
     <bean id="musicBean"
           class="com.gerdt.springcourse.ClassicalMusic">
     </bean>
 
     <bean id="musicPlayer"
           class="com.gerdt.springcourse.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <!-- setMusic() -> name="music" -->
+        <property name="music" ref="musicBean"/>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="50"/>
     </bean>
 
 </beans>

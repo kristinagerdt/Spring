@@ -8,6 +8,19 @@ public class TestSpring {
                 "applicationContext.xml");
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
+        System.out.println(musicPlayer.getName() + " " + musicPlayer.getVolume());
         context.close();
     }
 }
+
+// I - Spring does:
+// 1. Music classicalMusic = new ClassicalMusic();
+// 2. MusicPlayer musicPlayer = new MusicPlayer();
+// 3. musicPlayer.setMusic(classicalMusic);
+
+// II - Spring does:
+// 1. Music classicalMusic = new ClassicalMusic();
+// 2. MusicPlayer musicPlayer = new MusicPlayer();
+// 3. musicPlayer.setMusic(classicalMusic);
+// 4. musicPlayer.setName("Cool player");
+// 5. musicPlayer.setVolume(50);
