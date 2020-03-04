@@ -11,7 +11,10 @@
 
     <!-- Dependency Injection (DI)-->
     <bean id="classicalMusic"
-          class="com.gerdt.springcourse.ClassicalMusic">
+          class="com.gerdt.springcourse.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getInstance">
     </bean>
     <bean id="rockMusic"
           class="com.gerdt.springcourse.RockMusic">
@@ -22,7 +25,9 @@
 
     <bean id="musicPlayer"
           class="com.gerdt.springcourse.MusicPlayer"
-          scope="prototype">
+          scope="prototype"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
         <property name="musicList">
             <list>
                 <ref bean="classicalMusic"/>

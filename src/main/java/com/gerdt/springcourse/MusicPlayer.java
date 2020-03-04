@@ -39,4 +39,12 @@ public class MusicPlayer {
     public void playMusic() {
         musicList.forEach(m -> System.out.println("Playing: " + m.getSong()));
     }
+
+    public void doMyInit() {
+        System.out.println("Doing my initialization: MusicPlayer");
+    }
+
+    public void doMyDestroy() {
+        System.out.println("Doing my destruction: MusicPlayer");
+    }
 }
