@@ -1,39 +1,46 @@
 package com.gerdt.springcourse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
-    private Music music;
-    private String name;
-    private int Volume;
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
 
-    // Inversion of Control (IoC)
-    public MusicPlayer(Music music) {
-        this.music = music;
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
-    public MusicPlayer() {
-    }
-
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return Volume;
-    }
-
-    public void setVolume(int volume) {
-        Volume = volume;
-    }
-
-    public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+    public String playMusic() {
+        return "Playing:\n" + classicalMusic.getSong() + "\n" + rockMusic.getSong();
     }
 }
+
+//@Component
+//public class MusicPlayer {
+//    private ClassicalMusic classicalMusic;
+//
+//    @Autowired
+//    public MusicPlayer(ClassicalMusic classicalMusic) {
+//        this.classicalMusic = classicalMusic;
+//    }
+//}
+
+//@Component
+//public class MusicPlayer {
+//    private Music music;
+//
+//    @Autowired
+//    public void setMusic(Music music) {
+//        this.music = music;
+//    }
+//}
+
+//@Component - NOT Recommended
+//public class MusicPlayer {
+//    @Autowired
+//    private Music music;
+//}
