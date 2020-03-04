@@ -21,7 +21,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="com.gerdt.springcourse.MusicPlayer">
+          class="com.gerdt.springcourse.MusicPlayer"
+          scope="prototype">
         <property name="musicList">
             <list>
                 <ref bean="classicalMusic"/>
