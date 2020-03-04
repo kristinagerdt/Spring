@@ -7,36 +7,5 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <!-- Dependency Injection (DI)-->
-    <bean id="classicalMusic"
-          class="com.gerdt.springcourse.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getInstance">
-    </bean>
-    <bean id="rockMusic"
-          class="com.gerdt.springcourse.RockMusic">
-    </bean>
-    <bean id="rapMusic"
-          class="com.gerdt.springcourse.RapMusic">
-    </bean>
-
-    <bean id="musicPlayer"
-          class="com.gerdt.springcourse.MusicPlayer"
-          scope="prototype"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy">
-        <property name="musicList">
-            <list>
-                <ref bean="classicalMusic"/>
-                <ref bean="rockMusic"/>
-                <ref bean="rapMusic"/>
-            </list>
-        </property>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="50"/>
-    </bean>
-
+    <context:component-scan base-package="com.gerdt.springcourse"/>
 </beans>
