@@ -1,5 +1,7 @@
 package com.gerdt.springcourse;
 
+import java.util.List;
+
 public interface Music {
-    public abstract String getSong();
+    List<String> getSong();
 }
