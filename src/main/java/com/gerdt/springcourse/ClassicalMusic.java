@@ -1,23 +1,26 @@
 package com.gerdt.springcourse;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
+@Scope("singleton")
 public class ClassicalMusic implements Music {
-    private List<String> songs = new ArrayList<>();
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("Doing my initialization");
+    }
 
-    // Instance initialization block
-    {
-        songs.add("Hungarian Dance - Johannes Brahms");
-        songs.add("The Four Seasons - Antonio Vivaldi");
-        songs.add("Ride of the Valkyries - Richard Wagner");
+    @PreDestroy
+    public void doMyDestroy() {
+        System.out.println("Doing my destruction");
     }
 
     @Override
-    public List<String> getSong() {
-        return songs;
+    public String getSong() {
+        return "Hungarian Dance - Johannes Brahms";
     }
 }

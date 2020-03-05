@@ -1,25 +1,34 @@
 package com.gerdt.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
-    private RockMusic rockMusic;
-    private ClassicalMusic classicalMusic;
+    private Music rockMusic;
+    private Music classicalMusic;
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private int volume;
 
     @Autowired
-    public MusicPlayer(RockMusic rockMusic, ClassicalMusic classicalMusic) {
+    public MusicPlayer(@Qualifier("rockMusic") Music rockMusic, @Qualifier("classicalMusic") Music classicalMusic) {
         this.rockMusic = rockMusic;
         this.classicalMusic = classicalMusic;
     }
 
-    public void playMusic(MusicGenre musicGenre) {
-        int index = (int) (Math.random() * 3); //0-2
-        if (musicGenre == MusicGenre.ROCK) {
-            System.out.println(rockMusic.getSong().get(index));
-        } else if (musicGenre == MusicGenre.CLASSICAL) {
-            System.out.println(classicalMusic.getSong().get(index));
-        }
+    public String getName() {
+        return name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public String playMusic() {
+        return "Playing:\n" + rockMusic.getSong() + "\n" + classicalMusic.getSong();
     }
 }
