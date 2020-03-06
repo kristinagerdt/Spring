@@ -30,7 +30,13 @@ public class MusicPlayer {
     }
 
     public String playMusic() {
-        int index = (int) (Math.random() * 3);
-        return getName() + ", volume " + getVolume() + "\nPlaying: " + musicList.get(index).getSong();
+        //int index = (int) (Math.random() * 3);
+        //return getName() + ", volume " + getVolume() + "\nPlaying: " + musicList.get(index).getSong();
+        StringBuilder result = new StringBuilder();
+        result.append(getName()).append(", volume ").append(getVolume());
+        for (Music music : musicList) {
+            result.append("\nPlaying: ").append(music.getSong());
+        }
+        return result.toString();
     }
 }
