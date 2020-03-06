@@ -4,22 +4,35 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Configuration
 @PropertySource("classpath:musicPlayer.properties")
 public class SpringConfig {
-    @Bean
-    public ClassicalMusic classicalMusic() {
-        return new ClassicalMusic();
-    }
-
     @Bean
     public RockMusic rockMusic() {
         return new RockMusic();
     }
 
     @Bean
+    public ClassicalMusic classicalMusic() {
+        return new ClassicalMusic();
+    }
+
+    @Bean
+    public RapMusic rapMusic() {
+        return new RapMusic();
+    }
+
+    @Bean
+    public List<Music> musicList() {
+        return Arrays.asList(rockMusic(), classicalMusic(), rapMusic());
+    }
+
+    @Bean
     public MusicPlayer musicPlayer() {
-        return new MusicPlayer(rockMusic(), classicalMusic());
+        return new MusicPlayer(musicList());
     }
 
     @Bean
@@ -27,8 +40,3 @@ public class SpringConfig {
         return new Computer(musicPlayer());
     }
 }
-
-// @ComponentScan("com.gerdt.springcourse")
-// <context:component-scan base-package="com.gerdt.springcourse"/>
-// @PropertySource("classpath:musicPlayer.properties")
-// <context:property-placeholder location="musicPlayer.properties"/>
