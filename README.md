@@ -10,7 +10,7 @@
 - spring-app9: @Autowired: fields, setter, constructor
 - spring-app10: nested DI Computer(MusicPlayer(Music)), @Autowired+@Qualifier: fields, setter, constructor
 - spring-app11: HW List\<Music>, Random() song
-- spring-app12: file.properties, <context:property-placeholder>, @Value fields, @Component+@Scope("singleton"), @PostConstruct, @PreDestroy
+- spring-app12: file.properties, \<context:property-placeholder>, @Value fields, @Component+@Scope("singleton"), @PostConstruct, @PreDestroy
 - spring-app13: SpringConfig, @Configuration, @ComponentScan \<context:component-scan>, @PropertySource \<context:property-placeholder>, @Bean
 - spring-app14: HW SpringConfig, @Bean - all DI, @Bean List\<Music>
 - spring-app15: HW SpringConfig, @Component + @Autowired
