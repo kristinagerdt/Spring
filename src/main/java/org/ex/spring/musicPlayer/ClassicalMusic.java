@@ -1,4 +1,4 @@
-package com.gerdt.springcourse;
+package org.ex.spring.musicPlayer;
 
 import org.springframework.stereotype.Component;
 

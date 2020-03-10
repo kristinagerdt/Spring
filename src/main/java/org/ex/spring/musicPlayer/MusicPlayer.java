@@ -1,4 +1,4 @@
-package com.gerdt.springcourse;
+package org.ex.spring.musicPlayer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,8 +30,6 @@ public class MusicPlayer {
     }
 
     public String playMusic() {
-        //int index = (int) (Math.random() * 3);
-        //return getName() + ", volume " + getVolume() + "\nPlaying: " + musicList.get(index).getSong();
         StringBuilder result = new StringBuilder();
         result.append(getName()).append(", volume ").append(getVolume());
         for (Music music : musicList) {

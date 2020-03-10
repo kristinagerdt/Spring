@@ -1,4 +1,4 @@
-package com.gerdt.springcourse;
+package org.ex.spring.musicPlayer;
 
 public interface Music {
     String getSong();
