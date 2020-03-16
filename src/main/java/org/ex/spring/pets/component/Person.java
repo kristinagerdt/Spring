@@ -1,4 +1,4 @@
-package org.ex.spring.pet.component;
+package org.ex.spring.pets.component;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,4 +1,4 @@
-package org.ex.spring.pet.bean;
+package org.ex.spring.pets.bean;
 
 import org.springframework.beans.factory.annotation.Value;
 

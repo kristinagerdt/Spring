@@ -1,4 +1,4 @@
-package org.ex.spring.pet.bean;
+package org.ex.spring.pets.bean;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-@PropertySource("classpath:pet.properties")
+@PropertySource("classpath:pets.properties")
 public class SpringConfig {
     @Bean
     public Cat cat() {

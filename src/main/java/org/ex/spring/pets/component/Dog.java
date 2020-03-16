@@ -1,19 +1,21 @@
-package org.ex.spring.pet.component;
+package org.ex.spring.pets.component;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component
-public class Cat implements Animal {
-    @Value("${cat.name}")
+@Scope("prototype")
+public class Dog implements Animal {
+    @Value("Charlie")
     private String name;
 
     @Override
     public String getKind() {
-        return Cat.class.getSimpleName();
+        return Dog.class.getSimpleName();
     }
 
     @Override
