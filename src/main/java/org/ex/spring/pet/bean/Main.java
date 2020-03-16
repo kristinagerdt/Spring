@@ -1,4 +1,4 @@
-package org.ex.spring.pets.component;
+package org.ex.spring.pet.bean;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

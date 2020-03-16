@@ -1,0 +1,2 @@
+Event{id=1, message=FileEventLogger: Second event, date=2020-03-16 19:21:56}
+Event{id=1, message=CacheEventLogger: Third event, date=2020-03-16 19:21:56}
