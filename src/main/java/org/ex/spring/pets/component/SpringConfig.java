@@ -7,6 +7,6 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan("org.ex.spring.pets.component")
-@PropertySource("classpath:value.properties")
+@PropertySource("classpath:pets.properties")
 public class SpringConfig {
 }

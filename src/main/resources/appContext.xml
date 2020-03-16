@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="classpath:loggers.xml"/>
+    <context:property-placeholder location="eventLogger.properties"/>
+
+    <bean id="client"
+          class="org.ex.spring.eventLogger.xml.Client">
+        <property name="id" value="${client.id}"/>
+        <property name="fullName" value="${client.fullName}"/>
+        <property name="greeting" value="${client.greeting}"/>
+    </bean>
+
+    <bean id="app"
+          class="org.ex.spring.eventLogger.xml.App">
+        <constructor-arg ref="client"/>
+        <constructor-arg value="#{ T(org.ex.spring.eventLogger.xml.Event).isDay(8,17) ?
+            cacheFileEventLogger : consoleEventLogger }"/>
+        <constructor-arg>
+            <map>
+                <entry key="INFO" value-ref="consoleEventLogger"/>
+                <entry key="ERROR" value-ref="combinedEventLogger"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="dateTimeFormatter"
+          class="java.time.format.DateTimeFormatter"
+          factory-method="ofPattern">
+        <constructor-arg value="dd-MM-yyyy"/>
+    </bean>
+
+    <bean id="event"
+          class="org.ex.spring.eventLogger.xml.Event"
+          scope="prototype">
+        <constructor-arg>
+            <bean class="java.time.LocalDate">
+                <constructor-arg index="0" value="2020"/>
+                <constructor-arg index="1" value="03"/>
+                <constructor-arg index="2" value="10"/>
+            </bean>
+        </constructor-arg>
+        <constructor-arg ref="dateTimeFormatter"/>
+    </bean>
+</beans>

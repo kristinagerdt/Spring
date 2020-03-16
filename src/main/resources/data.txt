@@ -1,0 +1,3 @@
+Event{id=7, message=Console and FileEventLogger: Some event for 2, date=10-03-2020}
+Event{id=10, message=CacheEventLogger: Some event for 3, date=10-03-2020}
+Event{id=5, message=Console and FileEventLogger: Some event for 2, date=10-03-2020}
