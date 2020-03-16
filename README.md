@@ -14,5 +14,6 @@
 - spring-app13: SpringConfig, @Configuration, @ComponentScan \<context:component-scan>, @PropertySource \<context:property-placeholder>, @Bean
 - spring-app14: HW SpringConfig, @Bean - all DI, @Bean List\<Music>
 - spring-app15: HW SpringConfig, @Component + @Autowired
-- pets-app: @Bean vs @ComponentScan, @Component, @Autowired
+- pet-app: @Bean vs @ComponentScan, @Component, @Autowired
 - weekday-app: @Bean + getBean(Interface.class)
+- eventLogger-app: xml vs @Bean vs @Component
