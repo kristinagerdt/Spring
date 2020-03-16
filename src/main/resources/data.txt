@@ -1,5 +1,2 @@
-Event{id=7, message=Console and FileEventLogger: Some event for 2, date=10-03-2020}
-Event{id=10, message=CacheEventLogger: Some event for 3, date=10-03-2020}
-Event{id=5, message=Console and FileEventLogger: Some event for 2, date=10-03-2020}
-Event{id=5, message=FileLoggerEvent: Second event, date=2020-03-16 19:10:40}
-Event{id=3, message=CacheLoggerEvent: Third event, date=2020-03-16 19:10:40}
+Event{id=1, message=FileEventLogger: Second event, date=2020-03-16 19:21:56}
+Event{id=1, message=CacheEventLogger: Third event, date=2020-03-16 19:21:56}

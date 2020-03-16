@@ -1,17 +1,18 @@
-package org.ex.spring.eventLogger.bean;
+package org.ex.spring.eventLogger.component;
 
-import org.ex.spring.eventLogger.bean.loggers.CacheFileEventLogger;
-import org.ex.spring.eventLogger.bean.loggers.EventLogger;
+import org.ex.spring.eventLogger.component.loggers.CacheFileEventLogger;
+import org.ex.spring.eventLogger.component.loggers.EventLogger;
+import org.ex.spring.eventLogger.component.loggers.LoggerMap;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
-import java.util.Map;
-
+@Component
 public class App {
     private Client client;
     private CacheFileEventLogger defaultEventLogger;
-    private Map<EventType, EventLogger> loggerMap;
+    private LoggerMap loggerMap;
 
-    public App(Client client, CacheFileEventLogger defaultEventLogger, Map<EventType, EventLogger> loggerMap) {
+    public App(Client client, CacheFileEventLogger defaultEventLogger, LoggerMap loggerMap) {
         this.client = client;
         this.defaultEventLogger = defaultEventLogger;
         this.loggerMap = loggerMap;
@@ -36,7 +37,7 @@ public class App {
     }
 
     private void logEvent(EventType eventType, Event event) {
-        EventLogger eventLogger = loggerMap.get(eventType);
+        EventLogger eventLogger = loggerMap.getMap().get(eventType);
         String message = "";
         if (eventType == EventType.INFO) {
             message = "ConsoleEventLogger: First event";
