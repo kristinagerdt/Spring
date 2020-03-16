@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-@PropertySource("classpath:pets.properties")
+@PropertySource("classpath:pet.properties")
 public class SpringConfig {
     @Bean
     public Cat cat() {
