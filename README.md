@@ -17,3 +17,4 @@
 - pets-app: @Bean vs @ComponentScan, @Component, @Autowired
 - weekday-app: @Bean + getBean(Interface.class)
 - eventLogger-app: xml vs @Bean vs @Component
+- address-app: xml vs @Bean vs @Component
