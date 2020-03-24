@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="address.properties"/>
+
+    <bean id="address"
+          class="org.ex.spring.address.xml.Address">
+        <property name="street" value="Baker"/>
+        <property name="houseNumber" value="3"/>
+    </bean>
+
+    <bean id="person"
+          class="org.ex.spring.address.xml.Person">
+        <constructor-arg index="0" value="Alex"/>
+        <constructor-arg index="1" value="Smith"/>
+        <constructor-arg type="int" value="32"/>
+        <constructor-arg type="org.ex.spring.address.xml.Address" ref="address"/>
+        <property name="pets">
+            <list>
+                <bean id="cat" class="org.ex.spring.address.xml.Pet">
+                    <constructor-arg index="0" value="${pet.kind}"/>
+                    <constructor-arg index="1" value="${pet.name}"/>
+                </bean>
+                <bean id="dog" class="org.ex.spring.address.xml.Pet">
+                    <constructor-arg index="0" value="Dog"/>
+                    <constructor-arg index="1" value="Jerry"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+</beans>
