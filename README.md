@@ -1,4 +1,4 @@
-# Spring
+# Spring Core
 - spring-app1: appContext.xml, first Bean, getBean()
 - spring-app2: Inversion of Control (IoC)
 - spring-app3: Dependency Injection (DI) between Beans
